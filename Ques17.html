@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Slider</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <style>
+        .gallery_pic{
+            width :40%;
+            height: 50vh;
+        }
+        </style>
+</head>
+<body>
+    <div xlass = "gallery">
+        <img class="gallery_pic" src = "./images/img1.jpg" alt = "">
+        <script>
+            let images_array=[
+            './images/img1.jpg',
+            './images/img2.jpg',
+            './images/img3.jpg',
+            './images/img4.jpg'
+            ]
+           let pic = $(".gallery_pic");
+           let i=0;
+           setInterval(function(){
+           i=(i+1)%images_array.length
+           $(document).ready(function(){
+            pic.fadeOut(1000,()=>{
+                pic.attr('src',images_array[i]);
+                pic.fadeIn(1000);
+            }); 
+          });
+        },5000);
+        </script>
+    </body>
+</html>
